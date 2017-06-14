@@ -1,0 +1,56 @@
+/**
+Пример html:
+
+<div class="lpm-hint" style="top: 50px;left: 50px;">
+    <div class="lpm-hint__title-wrap">
+        <span class="lpm-hint__title">Заказывайте в 1 клик!</span>
+    </div>
+    <p class="lpm-hint__p">Данные вашего предыдущего заказа уже сохранены, просто нажмите «Подтвердить заказ».</p>
+    <p class="lpm-hint__p">Данные вашего предыдущего заказа уже сохранены, просто нажмите «Подтвердить заказ».</p>
+    <div class="lpm-hint__button-wrap">
+        <div class="lpm-hint__clicker"></div>
+        <button class="lpm-hint__button">Понятно</button>
+    </div>
+</div>
+
+**/
+
+.lpm-hint {
+    line-height: 1.6;
+    font-size: 16px;
+    color: #fff;
+    position: absolute;
+    z-index: $lpm-hint__base-z-index;
+    width: 300px;
+}
+
+.lpm-hint__title-wrap {
+    font-weight: bold;
+    display: block;
+    margin: 0;
+}
+
+.lpm-hint__title {
+    position: relative;
+}
+
+.lpm-hint__p {
+    margin-top: 20px;
+    margin-bottom: 0;
+
+    &:first-child {
+        margin-top: 0;
+    }
+}
+
+.lpm-hint__clicker {
+    position: fixed;
+    content: '';
+    z-index: ($lpm-hint__button-z-index - 1);
+    display: block;
+    background: transparent;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+}
