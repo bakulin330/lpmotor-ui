@@ -1,0 +1,69 @@
+/**
+Пример html:
+
+<div class="lpm-hint" style="top: 50px;left: 50px;">
+    <div class="lpm-hint__title-wrap">
+        <span class="lpm-hint__title">Заказывайте в 1 клик!</span>
+    </div>
+    <p class="lpm-hint__p">Данные вашего предыдущего заказа уже сохранены, просто нажмите «Подтвердить заказ».</p>
+    <p class="lpm-hint__p">Данные вашего предыдущего заказа уже сохранены, просто нажмите «Подтвердить заказ».</p>
+    <div class="lpm-hint__button-wrap">
+        <div class="lpm-hint__clicker"></div>
+        <button class="lpm-hint__button">Понятно</button>
+    </div>
+</div>
+
+**/
+
+.lpm-hint {
+    line-height: 1.6;
+    font-size: 16px;
+    color: #fff;
+    position: absolute;
+    z-index: $lpm-hint__z-index;
+    width: 300px;
+}
+
+.lpm-hint__title-wrap {
+    font-weight: bold;
+    display: block;
+    margin: 0;
+}
+
+.lpm-hint__title {
+    position: relative;
+
+    &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        width: 201px;
+        height: 56px;
+        left: 100%;
+        bottom: 100%;
+        margin-left: 12px;
+        margin-bottom: -10px;
+        background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMkAAAA4CAMAAABg1iyLAAACi1BMVEX///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////9htJSsAAAA2XRSTlMAAQIDBAUGBwgJCgsMDQ4PEBESFBUWFxgZGxwdHh8gISIkJSYnKSosLi8wMTM0NTY3ODk6PT4/QEFCQ0RFRkdISUtMTU5PUFFSVFVWV1hZWlxdXl9gYWNkZmhpamtsbW5vcHFyc3Z3eHl6e31+f4CBgoSFhoeIiYyNjo+RkpOUlZaXmZqcnZ+go6Slpqeoqausra6vsLKztLa3uLm6u7y9vr/AwcLDxMXIy8zOz9DR0tTV1tfY2drb3N3e3+Dh4uPk5ebn6Onq6+zt7u/w8fLz9PX29/j5+vv9KCHIIwAAAyVJREFUeNrd1ulXjGEcxvHrmaYpKdXQYoRGQitSpkyESikppEKLUipZEikJhTIomYhopSSFadFCyxSlkSRZ/xwZxzmdNqpZnuf+vPm9ud9cb77nhpIZrXTdFZ2YlpVXUlJV81tVScldUXpi1F53G2MwwVw7/yNXytq+99WVilKPRQX5uAoFtiPWCoXuPnujkzJvltYNfn1dKTrqbzsH9MSy8D1d2Pa5Nvd0iJDPwVQMrdzD04qkP1+J4zfNB60Yb0t+ONiad2SrOQv/T39d8Pnqb+23DlqxQAcmAZcbhyuTt3AxI1oOkTmd/XcOWkGtNBxP1Q7eiVyjidmxCL09IM3crA31MArMldWecuZAIdgOJyRD+YH6ULWF4Y8+3Q40gULxD1cP3/LWguoYBpcPiXfqQQl4UZKBLCcKqkAJcz+Kd+hCaWzP9jbFLFB+qWJbn4ZxoVyanoVfrtpBiSi3/L4Lq6AKFucHn3izoBxaQfXPg+ZAVeZFtLSEcKB43Phu8XqoFMtPIg3XhmItTn+XwYfKUdtqOoLYUJwll/pTjKAem6sbt1NQDNPMDyM71IbybXnqAgUwSJaN7FArTnif2AyzxD7Qm2UKtTM4OZAwu2oKJPetQQsWxa0emDHz/Ho30IZvdwEPM8I5/iaMDRrRS3u/j8L0rZbkmIJm7CXFizBNOqmtG0E/nETZHkyLoCldF7Rk35jHHT3tH8tTXq0HXelc7BTgr5AMTGVZzRU90JhnbwILfzhXYAq7O71Bb7zKogWQM5ZhUvOuPzYD3bFT2mwg12eMSVg2nGGDAbx6/OS3wmWyB11eYAbLl8kaADLCMBEqoXkFmMLgwT19IHTCeGnfKOaCOTTONSyZOF4Gj7I1wQwBfPk5ILUykmEckxdJFJhBWySVioL5gFevy/h48ZtDwSD8YPkav56GsfGyafeGHMPW9PwQj/mXvXEGI/GjIjCadacTiLCy3RFEWN4hBBF47R4ggr5kP4jAKTsGMmRfo0CEQ9U6IIJT90IQwbRLACKwyuNAhphyDRDB+i0PRNB8FgAyxBWCDEtlZiBDQSwIsYEDMvwCo7TXSjE7IkcAAAAASUVORK5CYII=);
+    }
+}
+
+.lpm-hint__p {
+    margin-top: $lpm-hint__text-padding;
+    margin-bottom: 0;
+
+    &:first-child {
+        margin-top: 0;
+    }
+}
+
+.lpm-hint__clicker {
+    position: fixed;
+    content: '';
+    z-index: $lpm-hint__clicker-z-index;
+    display: block;
+    background: transparent;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+}
