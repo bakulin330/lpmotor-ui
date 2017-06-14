@@ -20,7 +20,7 @@
     font-size: 16px;
     color: #fff;
     position: absolute;
-    z-index: $lpm-hint__z-index;
+    z-index: $lpm-hint__zindex;
     width: 300px;
 }
 
@@ -59,7 +59,7 @@
 .lpm-hint__clicker {
     position: fixed;
     content: '';
-    z-index: $lpm-hint__clicker-z-index;
+    z-index: $lpm-hint__clicker-zindex;
     display: block;
     background: transparent;
     left: 0;

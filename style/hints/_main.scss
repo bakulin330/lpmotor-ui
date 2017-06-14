@@ -1,8 +1,9 @@
-$lpm-hint__z-index: 1060;
-$lpm-hint__button-z-index: 10;
-$lpm-hint__clicker-z-index: ($lpm-hint__button-z-index - 1);
-$lpm-hint__target-z-index: ($lpm-hint__z-index - 1);
-$lpm-hint__fader-z-index: ($lpm-hint__target-z-index - 1);
+$lpm-hint__zindex: 1060;
+$lpm-hint__button-zindex: 10;
+$lpm-hint__clicker-zindex: ($lpm-hint__button-zindex - 1);
+$lpm-hint__target-zindex: ($lpm-hint__zindex - 1);
+$lpm-hint__fader-zindex: ($lpm-hint__target-zindex - 1);
+
 $lpm-hint__text-padding: 20px;
 
 @import "text.scss";
