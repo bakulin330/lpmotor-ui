@@ -5,45 +5,7 @@ $lpm-hint__target-z-index: ($lpm-hint__z-index - 1);
 $lpm-hint__fader-z-index: ($lpm-hint__target-z-index - 1);
 $lpm-hint__text-padding: 20px;
 
-/**
-Пример html:
-
-<div class="lpm-hint__target-wrap">
-    <div class="lpm-hint__target">На этот элемент указывает подсказка</div>
-    <div class="lpm-hint">
-        ... Контент подсказки
-        ... см. пример в text.scss
-    </div>
-</div>
-
-Для того, чтобы отобразить подсказку, нужно:
-1) на сам элемент повесить класс lpm-hint__target
-2) на родительский элемент повесить класс lpm-hint__target-wrap
-3) добавить элемент подсказки под lpm-hint__target
-
-**/
-
-.lpm-hint__target-wrap {
-    position: relative;
-
-    &:after {
-        content: '';
-        display: block;
-        position: fixed;
-        z-index: $lpm-hint__fader-z-index;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        background: rgba(0,0,0,.7);
-    }
-}
-
-.lpm-hint__target {
-    z-index: $lpm-hint__target-z-index;
-    position: relative;
-}
-
 @import "text.scss";
 @import "button.scss";
-@import "button-blink-animation.scss";
+@import "target.scss";
+@import "button-animation.scss";
