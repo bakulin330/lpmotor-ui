@@ -39,15 +39,18 @@ if (env.prod) {
 }
 
 gulp.task('hints', function(){
-    gulp.src('style/hints/_main.scss')
-        .pipe(plugins.sass())
-        //.pipe(plugins.concatCss('hints.css'))
-        //.pipe(plugins.prefixer())
+    gulp.src('style/hints/main.scss')
+        .pipe(plugins.sass({
+            outputStyle: env.prod ? 'compressed' : 'expanded',
+            sourceComments: !env.prod
+        }).on('error', plugins.sass.logError))
+        .pipe(plugins.concatCss('hints.css'))
+        .pipe(plugins.prefixer())
         //.pipe(cssmin())
-        //.pipe(env.prod || env.minify
-        //    ? plugins.csso()
-        //    : plugins.gutil.noop()
-        //)
+        .pipe(env.prod || env.minify
+            ? plugins.csso()
+            : plugins.gutil.noop()
+        )
         .pipe(gulp.dest(buildRoot))
         ;
 });
