@@ -22,10 +22,9 @@ var gulp = require('gulp'),
         prod: (plugins.gutil.env.prod),
         minify: (plugins.gutil.env.minify)
     },
-    dirRoot = process.cwd() + '/',
-    buildRoot = dirRoot + 'build/';
+    config = {};
 
-plugins.gutil.log('Root =', dirRoot);
+plugins.gutil.log('Root =', env.dirRoot);
 if (env.prod) {
     plugins.gutil.log(plugins.gutil.colors.red('Production'), 'build');
 } else {
@@ -38,29 +37,15 @@ if (env.prod) {
     }
 }
 
-gulp.task('hints', function(){
-    gulp.src('style/hints/main.scss')
-        .pipe(plugins.sass({
-            outputStyle: env.prod ? 'compressed' : 'expanded',
-            sourceComments: !env.prod
-        }).on('error', plugins.sass.logError))
-        .pipe(plugins.concatCss('hints.css'))
-        .pipe(plugins.prefixer())
-        //.pipe(cssmin())
-        .pipe(env.prod || env.minify
-            ? plugins.csso()
-            : plugins.gutil.noop()
-        )
-        .pipe(gulp.dest(buildRoot))
-        ;
-});
+require('./tasks')(gulp, plugins, config, env);
 
-gulp.task('build', sequence(
-    'hints'
+// local tasks
+gulp.task('ui:build', sequence(
+    'ui:hints'
 ));
 
 gulp.task('run', sequence(
-    'build'
+    'ui:build'
     //,'watch:hints'
 ));
 
