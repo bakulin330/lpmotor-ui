@@ -1,7 +1,7 @@
 'use strict';
 
-module.exports = function(gulp, plugins, config, env){
-    config.dirUiRoot = process.cwd() + '/';
+module.exports = function(gulp, plugins, config, env, dirRoot){
+    config.dirUiRoot = dirRoot;
     config.dirUiBuild = config.dirUiRoot + 'build/';
 
     function getUiTask(name) {

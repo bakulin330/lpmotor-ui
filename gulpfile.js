@@ -37,7 +37,7 @@ if (env.prod) {
     }
 }
 
-require('./tasks')(gulp, plugins, config, env);
+require('./tasks')(gulp, plugins, config, env, env.dirRoot);
 
 // local tasks
 gulp.task('ui:build', sequence(
