@@ -35,7 +35,7 @@ if (env.prod) {
 require('./tasks')(gulp, plugins, config, env, env.dirRoot);
 
 // general tasks
-gulp.task('ui:build', sequence(
+gulp.task('build', sequence(
     'ui:hints'
 ));
 
@@ -45,5 +45,6 @@ gulp.task('run', sequence(
 ));
 
 gulp.task('default', function () {
-
+    plugins.gutil.log('This is the default task.');
+    plugins.gutil.log('Enter `gulp build` command to start building process.');
 });
