@@ -10,5 +10,5 @@ module.exports = function(gulp, plugins, config, env, dirRoot, dirBuild){
 
     // DEFINE TASKS
     gulp.task('lpm-ui:hints', getUiTask('hints'));
-    gulp.task('lpm-ui:build-all', plugins.sequence('lpm-ui:hints'));
+    gulp.task('lpm-ui:build-all', ['lpm-ui:hints'], getUiTask('build-all'));
 };

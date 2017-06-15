@@ -13,8 +13,8 @@ module.exports = function (gulp, plugins, config, env) {
             .pipe(env.prod || env.minify
                 ? plugins.csso()
                 : plugins.gutil.noop()
-        )
+            )
             .pipe(gulp.dest(config.dirUiBuild))
-        ;
+            ;
     }
 };
