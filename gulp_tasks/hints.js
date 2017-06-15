@@ -2,7 +2,7 @@
 
 module.exports = function (gulp, plugins, config, env) {
     return function () {
-        gulp.src(config.dirUiRoot + 'style/hints/main.scss')
+        gulp.src(config.dirUiRoot + 'src/hints/style.scss')
             .pipe(plugins.sass({
                 outputStyle: env.prod ? 'compressed' : 'expanded',
                 sourceComments: !env.prod

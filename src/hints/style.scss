@@ -6,7 +6,7 @@ $lpm-hint__fader-zindex: ($lpm-hint__target-zindex - 1);
 
 $lpm-hint__text-padding: 20px;
 
-@import "text";
-@import "button";
-@import "target";
-@import "button-animation";
+@import "sass/text";
+@import "sass/button";
+@import "sass/target";
+@import "sass/button-animation";

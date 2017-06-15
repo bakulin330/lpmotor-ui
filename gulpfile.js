@@ -18,7 +18,7 @@ var gulp = require('gulp'),
         sass: require('gulp-sass')
     },
     env = {
-        dirRoot : process.cwd() + '/',
+        dirRoot: process.cwd() + '/',
         prod: (plugins.gutil.env.prod),
         minify: (plugins.gutil.env.minify)
     },
@@ -29,17 +29,12 @@ if (env.prod) {
     plugins.gutil.log(plugins.gutil.colors.red('Production'), 'build');
 } else {
     plugins.gutil.log(plugins.gutil.colors.green('Dev'), 'build');
-
-    if (env.minify) {
-        plugins.gutil.log('Minify is', plugins.gutil.colors.green('ON'));
-    } else {
-        plugins.gutil.log('Minify is', plugins.gutil.colors.gray('OFF'));
-    }
+    plugins.gutil.log('Minify is', env.minify ? plugins.gutil.colors.green('ON') : plugins.gutil.colors.gray('OFF'));
 }
 
 require('./tasks')(gulp, plugins, config, env, env.dirRoot);
 
-// local tasks
+// general tasks
 gulp.task('ui:build', sequence(
     'ui:hints'
 ));
@@ -49,6 +44,6 @@ gulp.task('run', sequence(
     //,'watch:hints'
 ));
 
-gulp.task('default', function(){
+gulp.task('default', function () {
 
 });
