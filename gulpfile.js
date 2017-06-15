@@ -1,7 +1,6 @@
 'use strict';
 
 var gulp = require('gulp'),
-    sequence = require('gulp-sequence'), // используем плагин для последовательного/параллельного выполнения задач https://www.npmjs.com/package/gulp-sequence
     plugins = {
         concat: require('gulp-concat'), // для склеивания файлов
         //replace: require('gulp-replace'),
@@ -15,7 +14,8 @@ var gulp = require('gulp'),
         gutil: require('gulp-util'), // Utility functions https://www.npmjs.com/package/gulp-util
         //uglify: require('gulp-uglify'), // используем плагин для сжатия JS файлов
         //include: require('gulp-include'),
-        sass: require('gulp-sass')
+        sass: require('gulp-sass'),
+        sequence: require('gulp-sequence') // используем плагин для последовательного/параллельного выполнения задач https://www.npmjs.com/package/gulp-sequence
     },
     env = {
         dirRoot: process.cwd() + '/',
@@ -35,14 +35,12 @@ if (env.prod) {
 require('./tasks')(gulp, plugins, config, env, env.dirRoot);
 
 // general tasks
-gulp.task('build', sequence(
-    'ui:hints'
-));
+gulp.task('build', plugins.sequence('lpm-ui:build-all'));
 
-gulp.task('run', sequence(
+/* gulp.task('watch', plugins.sequence(
     'ui:build'
     //,'watch:hints'
-));
+)); */
 
 gulp.task('default', function () {
     plugins.gutil.log('This is the default task.');
