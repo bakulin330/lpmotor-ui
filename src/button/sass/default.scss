@@ -1,0 +1,71 @@
+.c-button {
+    user-select: none;
+    cursor: pointer;
+    border: 0;
+    color: #404040;
+    cursor: pointer;
+    display: inline-block;
+    font-family: inherit;
+    font-size: 14px;
+    margin: 0;
+    outline: 0;
+    overflow: visible;
+    position: relative;
+    box-sizing: border-box;
+
+    &:active {
+        .c-button__text {
+            top: 1px;
+        }
+    }
+
+    &:focus {
+        outline: none;
+    }
+}
+
+.c-button__text {
+    position: relative;
+    display: block;
+    white-space: nowrap;
+}
+
+.c-button_size-normal {
+    padding: 0 ($base-button-height / 2);
+    height: $base-button-height;
+    line-height: $base-button-height;
+    border-radius: $base-button-border-radius;
+    font-size: $base-button-text-size;
+}
+
+.c-button_size-l {
+    padding: 0 ($button-large__height / 2);
+    height: $button-large__height;
+    line-height: $button-large__height;
+    border-radius: $button-large__border-radius;
+    font-size: $button-large__text-size;
+}
+
+.c-button_size-xl {
+    padding: 0 ($button-xlarge__height / 2);
+    height: $button-xlarge__height;
+    line-height: $button-xlarge__height;
+    border-radius: $button-xlarge__border-radius;
+    font-size: $button-xlarge__text-size;
+}
+
+.c-button_default {
+    background-image: linear-gradient(#ffffff, #ebebeb);
+    color: none;
+    box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(0, 0, 0, 0.15);
+
+    &:hover {
+        background-image: linear-gradient(#F2F2F2, #DFDFDF);
+        box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(0, 0, 0, 0.2);
+    }
+
+    &:active {
+        background: #E1E1E1;
+        box-shadow: 0 -1px 0 0 rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.2), inset 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+    }
+}
