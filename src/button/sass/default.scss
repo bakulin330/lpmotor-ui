@@ -32,6 +32,47 @@
 }
 
 //-------------------------
+// State
+//-------------------------
+.c-button_disabled {
+    border-color: #d9d9d9 !important;
+    background: #f2f2f2 !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: inset 0 0 0 1px #d9d9d9 !important;
+    color: #a0a0a0 !important;
+    text-shadow: none;
+    cursor: default;
+
+    &:focus {
+        box-shadow: none;
+    }
+
+    .c-button__inner {
+        top: 0 !important;
+    }
+}
+
+.c-button_loading {
+    @extend .c-button_disabled;
+    //animation: loading-stripes 2s infinite linear;
+    //background-image: linear-gradient(-45deg, rgba(150, 150, 150, 0.2) 25%, transparent 25%, transparent 50%, rgba(150, 150, 150, 0.2) 50%, rgba(150, 150, 150, 0.2) 75%, transparent 75%, transparent) !important;
+    ////background-image: url('data:image/svg+xml;base64,str2base64([code]<svg fill="#ccc" width="50" height="50" viewbox="0 0 40 40"><path d="M 20,0 40,0 0,40 0,20"/></svg>[/code])');
+    //background-size: 50px 50px !important;
+    &:after {
+        background: linear-gradient(-45deg, #ccc 25%, transparent 25%, transparent 50%, #ccc 50%, #ccc 75%, transparent 75%, transparent);
+        content: '';
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        opacity: 0.3;
+        background-size: 50px 50px;
+        top: 0;
+        left: 0;
+        animation: loading-stripes 1s infinite linear;
+    }
+}
+
+//-------------------------
 // Size
 //-------------------------
 .c-button_small {
