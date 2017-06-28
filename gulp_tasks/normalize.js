@@ -7,7 +7,7 @@ module.exports = function (gulp, plugins, config, env) {
                 outputStyle: env.prod ? 'compressed' : 'expanded',
                 sourceComments: !env.prod
             }).on('error', plugins.sass.logError))
-            .pipe(plugins.concatCss('normalize.css'))
+            .pipe(plugins.concatCss('normalize/ready.css'))
             .pipe(plugins.prefixer())
             //.pipe(cssmin())
             .pipe(env.prod || env.minify
