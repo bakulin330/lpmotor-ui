@@ -21,6 +21,7 @@
     "gulp-util": "3.0.7",
     "gulp-wrap": "0.13.0",
     "gulp-include": "2.3.1",
-    "node-sass": "3.13.0"
+    "node-sass": "3.13.0",
+    "gulp-pug": "*"
   }
 }

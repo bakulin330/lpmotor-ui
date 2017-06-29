@@ -2,6 +2,7 @@ $button__border-radius: 2px;
 
 $button-small__text-size: $BUTTON__text-size;
 $button-small__height: roundEven($button-small__text-size * 2.28);
+$button-small__height2: roundEven($button-small__text-size * 2.43);
 $button-small__padding: roundEven($button-small__text-size* 1.20);
 $button-small__border-radius: $button__border-radius;
 

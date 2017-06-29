@@ -15,7 +15,8 @@ var gulp = require('gulp'),
         //uglify: require('gulp-uglify'), // используем плагин для сжатия JS файлов
         //include: require('gulp-include'),
         sass: require('gulp-sass'),
-        sequence: require('gulp-sequence') // используем плагин для последовательного/параллельного выполнения задач https://www.npmjs.com/package/gulp-sequence
+        sequence: require('gulp-sequence'), // используем плагин для последовательного/параллельного выполнения задач https://www.npmjs.com/package/gulp-sequence
+        pug: require('gulp-pug')
     },
     env = {
         dirRoot: process.cwd() + '/',
