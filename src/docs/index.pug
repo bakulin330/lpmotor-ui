@@ -13,7 +13,7 @@ html(lang="en")
             |     el.className = currentClassName + ' ' + loadingClass;
             |     setTimeout(function(){
             |         el.className = (el.className + ' ').replace(new RegExp('\\s+' + loadingClass + '\\s+', 'g'), ' ');
-            |     }, 3 * 1000);
+            |     }, 2 * 1000);
             | }
 
     body
@@ -36,7 +36,21 @@ html(lang="en")
                 button(class="c-button c-button_small c-button_default" onclick="loaderExample(this);")
                     .c-button__inner Загрузка
 
-            div(style="clear:both")
+            div(style="clear:both; padding-top: 30px;")
+
+            div(style="float:left;")
+                button(class="c-button c-button_small c-button_default")
+                    .c-button__inner Кнопка
+
+            div(style="float:left; margin-left: 10px;")
+                button(class="c-button c-button_medium c-button_default")
+                    .c-button__inner Кнопка
+
+            div(style="float:left;margin-left: 10px;")
+                button(class="c-button c-button_large c-button_default")
+                    .c-button__inner Кнопка
+
+            div(style="clear:both; padding-top: 30px;")
 
             div(style="margin-top:20px;")
                 label(style="display: inline-block;position: relative;width: 200px;")

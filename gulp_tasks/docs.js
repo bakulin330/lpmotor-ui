@@ -2,7 +2,7 @@
 
 module.exports = function (gulp, plugins, config, env) {
     return function () {
-        gulp.src(config.dirUiRoot + 'src/guide/**/*.pug')
+        gulp.src(config.dirUiRoot + 'src/docs/**/*.pug')
             .pipe(plugins.pug({
                 pretty: true
             }))
