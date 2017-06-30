@@ -4,6 +4,7 @@
     color: #a0a0a0 !important;
     text-shadow: none;
     cursor: default;
+    pointer-events: none;
 
     &:focus {
         box-shadow: none;
