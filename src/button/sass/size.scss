@@ -1,0 +1,23 @@
+.c-button_small {
+    padding: 0 $button-small__padding;
+    height: $button-small__height;
+    line-height: $button-small__height;
+    border-radius: $button-small__border-radius;
+    font-size: $button-small__text-size;
+}
+
+.c-button_medium {
+    padding: 0 $button-medium__padding;
+    height: $button-medium__height;
+    line-height: $button-medium__height;
+    border-radius: $button-medium__border-radius;
+    font-size: $button-medium__text-size;
+}
+
+.c-button_large {
+    padding: 0 $button-large__padding;
+    height: $button-large__height;
+    line-height: $button-large__height;
+    border-radius: $button-large__border-radius;
+    font-size: $button-large__text-size;
+}

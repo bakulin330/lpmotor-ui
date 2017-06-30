@@ -1,4 +1,8 @@
 @import "../main-style-vars";
 @import "sass/vars";
 @import "sass/animations";
+
 @import "sass/default";
+@import "sass/size";
+@import "sass/type";
+@import "sass/state"; //after type!
