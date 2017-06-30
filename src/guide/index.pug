@@ -3,25 +3,44 @@ html(lang="en")
     head
         title Page Title
         link(rel="stylesheet" href="full.css")
+        script(type="text/javascript")
+            | function loaderExample(el) {
+            |     var currentClassName = el.className;
+            |     var loadingClass = 'c-button_loading';
+            |     if (new RegExp('\\s+'+loadingClass+'\\s+').test(currentClassName + ' ')) {
+            |         return;
+            |     }
+            |     el.className = currentClassName + ' ' + loadingClass;
+            |     setTimeout(function(){
+            |         el.className = (el.className + ' ').replace(new RegExp('\\s+' + loadingClass + '\\s+', 'g'), ' ');
+            |     }, 3 * 1000);
+            | }
 
     body
         div(style="width:460px;margin:0 auto")
             h1 Pug
 
-            div
-                button(class="c-button c-button_small c-button_default" style="float:left; display:block;")
-                    .c-button__inner Кнопка1
-
-                button(class="c-button c-button_small c-button_default c-button__default2" style="float:left; margin-left:4px; top:-1px;")
-                    .c-button__inner Кнопка1
-
-            div(style="clear:both")
-
-            div(style="margin-top:10px")
+            div(style="float:left;")
                 button(class="c-button c-button_small c-button_primary")
                     .c-button__inner Кнопка
 
-            button(class="c-button c-button_small c-button_primary c-button_disabled")
-                .c-button__inner Кнопка
-            button(class="c-button c-button_small c-button_primary c-button_loading")
-                .c-button__inner Кнопка
+            div(style="float:left; margin-left: 4px;")
+                button(class="c-button c-button_small c-button_default")
+                    .c-button__inner Кнопка1
+
+            div(style="float:left; margin-left: 4px;")
+                button(class="c-button c-button_small c-button_primary c-button_disabled")
+                    .c-button__inner Кнопка
+
+            div(style="float:left; margin-left: 4px;")
+                button(class="c-button c-button_small c-button_default" onclick="loaderExample(this);")
+                    .c-button__inner Загрузка
+
+            div(style="clear:both")
+
+            div(style="margin-top:20px;")
+                label(style="display: inline-block;position: relative;width: 200px;")
+                    input(class="c-input")
+
+                button(class="c-button c-button_small c-button_default")
+                    .c-button__inner КнопкаT
