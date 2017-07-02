@@ -5,10 +5,10 @@ $base-font-size: 14px;
     @return round($num / 2) * 2;
 }
 
-// button
-$BUTTON__text-size: $base-font-size;
-
+//
 $INPUT_base_width: 250px;
+$INPUT_border_radius: 2px;
+
 $INPUT_small_height: 34px;
 $INPUT_medium_height: 40px;
 $INPUT_large_height: 44px;

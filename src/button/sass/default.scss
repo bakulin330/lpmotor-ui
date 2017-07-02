@@ -18,7 +18,7 @@
     position: relative;
     box-sizing: border-box;
     -webkit-appearance: button;
-    border-radius: $button__border-radius;
+    border-radius: $INPUT_border_radius;
     //border: 1px solid #000;
 
     &:active, &.c-button_active {

@@ -19,6 +19,7 @@
     outline: none;
     padding: 0 8px;
     width: 100%;
+    border-radius: $INPUT_border_radius;
     @include input__default-size();
 
     &:focus, &.c-input__focused {
