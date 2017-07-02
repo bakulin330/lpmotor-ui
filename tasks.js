@@ -13,11 +13,13 @@ module.exports = function(gulp, plugins, config, env, dirRoot, dirBuild){
     gulp.task('lpm-ui:normalize', getUiTask('normalize'));
     gulp.task('lpm-ui:typography', getUiTask('typography'));
     gulp.task('lpm-ui:button', getUiTask('button'));
+    gulp.task('lpm-ui:input', getUiTask('input'));
     gulp.task('lpm-ui:hints', getUiTask('hints'));
     gulp.task('lpm-ui:build-all', [
         'lpm-ui:normalize'
         ,'lpm-ui:typography'
         ,'lpm-ui:button'
+        ,'lpm-ui:input'
         ,'lpm-ui:hints'
     ], getUiTask('build-all'));
 

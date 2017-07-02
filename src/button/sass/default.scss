@@ -1,3 +1,9 @@
+.c-button__wrap {
+    box-sizing: border-box;
+    display: inline-block;
+    padding: 1px;
+}
+
 .c-button {
     user-select: none;
     cursor: pointer;
@@ -5,13 +11,14 @@
     border: 0;
     display: inline-block;
     font-family: inherit;
-    font-size: $BUTTON__text-size;
+    font-size: $INPUT_font_size;
     margin: 0;
     outline: 0;
     overflow: visible;
     position: relative;
     box-sizing: border-box;
     -webkit-appearance: button;
+    border-radius: $button__border-radius;
     //border: 1px solid #000;
 
     &:active, &.c-button_active {

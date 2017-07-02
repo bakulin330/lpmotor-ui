@@ -1,0 +1,48 @@
+// IE
+.rt-ie-any {
+    .c-input__warning .c-input {
+        outline: 1px solid $input__color-warning;
+    }
+
+    .c-input__error .c-input {
+        outline: 1px solid $input__color-error;
+    }
+}
+
+.c-input__disabled .c-input {
+    background: #f2f2f2;
+    border-color: #d9d9d9;
+    color: #a0a0a0;
+    cursor: default;
+
+    &:focus, &.c-input__focus {
+        outline: none;
+        box-shadow: none;
+        border-color: #d9d9d9;
+    }
+}
+
+.c-input__warning .c-input {
+    border-color: $input__color-warning;
+    box-shadow: 0 0 0 1px $input__color-warning;
+    position: relative;
+    z-index: 2;
+}
+
+.c-input__error .c-input {
+    border-color: $input__color-error;
+    box-shadow: 0 0 0 1px $input__color-error;
+    position: relative;
+    z-index: 2;
+}
+
+// IE
+.rt-ie8 {
+    .c-input__warning .c-input {
+        outline: 1px solid $input__color-warning;
+    }
+
+    .c-input__error .c-input {
+        outline: 1px solid $input__color-error;
+    }
+}

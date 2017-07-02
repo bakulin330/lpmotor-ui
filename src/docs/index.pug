@@ -58,3 +58,48 @@ html(lang="en")
 
                 button(class="c-button c-button_small c-button_default")
                     .c-button__inner КнопкаT
+
+            div(style="height:1px; background: #ccc; margin: 30px 0;")
+
+
+            div(style="margin-top:20px")
+                span.c-input__wrap.c-input__disabled
+                    input.c-input(value="Текст" disabled)
+
+            div(style="margin-top:20px")
+                span.c-input__wrap.c-input__warning
+                    input.c-input(value="Предупреждение")
+
+            div(style="margin-top:20px")
+                span.c-input__wrap.c-input__error
+                    input.c-input(value="Ошибка")
+
+
+            table(style="margin-top:20px")
+                tr
+                    td
+                        span.c-input__wrap
+                            input.c-input(value="Текст")
+                    td(style="height:10px")
+                    td
+                        .c-button__wrap
+                            button.c-button.c-button_small.c-button_default
+                                .c-button__inner Кнопка
+                tr
+                    td(style="padding-top:10px")
+                        span.c-input__wrap.c-input__medium
+                            input.c-input(value="Текст")
+                    td
+                    td(style="padding-top:10px")
+                        .c-button__wrap
+                            button.c-button.c-button_medium.c-button_default
+                                .c-button__inner Кнопка
+                tr
+                    td(style="padding-top:10px")
+                        span.c-input__wrap.c-input__large
+                            input.c-input(value="Текст")
+                    td
+                    td(style="padding-top:10px")
+                        .c-button__wrap
+                            button.c-button.c-button_large.c-button_default
+                                .c-button__inner Кнопка

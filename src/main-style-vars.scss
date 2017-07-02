@@ -8,18 +8,10 @@ $base-font-size: 14px;
 // button
 $BUTTON__text-size: $base-font-size;
 
+$INPUT_base_width: 250px;
+$INPUT_small_height: 34px;
+$INPUT_medium_height: 40px;
+$INPUT_large_height: 44px;
 
-
-.c-input {
-    line-height: 32px;
-    border: 1px solid #d9d9d9;
-    border-top-color: #b2b2b2;
-    box-sizing: border-box;
-    font-family: inherit;
-    font-size: 14px;
-    margin: 0;
-    outline: none;
-    padding: 0 8px;
-    width: 100%;
-    border-radius: 2px;
-}
+$INPUT_font_size: $base-font-size;
+$INPUT_large_font_size: $base-font-size + 2;

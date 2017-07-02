@@ -1,17 +1,28 @@
+.c-input__wrap {
+    display: inline-block;
+    position: relative;
+    width: $INPUT_base_width;
+}
+
+@mixin input__default-size {
+    font-size: $INPUT_font_size;
+    height: $INPUT_small_height;
+    line-height: $input-small__line-height;
+}
+
 .c-input {
-    border: 1px solid #d9d9d9;
-    border-top-color: #b2b2b2;
+    border: $input__border solid #d9d9d9;
+    border-top: $input__border solid #b2b2b2;
     box-sizing: border-box;
     font-family: inherit;
-    font-size: 14px;
-    line-height: 16px;
     margin: 0;
     outline: none;
     padding: 0 8px;
     width: 100%;
+    @include input__default-size();
 
-    &:focus, .c-input_focused {
-        border-color: #5199db;
+    &:focus, &.c-input__focused {
+        border: $input__border solid #5199db;
         box-shadow: 0 0 0 1px #5199db;
         position: relative;
         z-index: 2;
@@ -22,6 +33,8 @@
     }
 }
 
-.c-input_size_small {
-    line-height: 32px;
+.rt-ie-any {
+    .c-input {
+        box-shadow: none !important;
+    }
 }

@@ -1,17 +1,1 @@
 $button__border-radius: 2px;
-
-$button-small__text-size: $BUTTON__text-size;
-$button-small__height: roundEven($button-small__text-size * 2.28);
-//$button-small__height2: roundEven($button-small__text-size * 2.43);
-$button-small__padding: roundEven($button-small__text-size* 1.20);
-$button-small__border-radius: $button__border-radius;
-
-$button-medium__text-size: $base-font-size;
-$button-medium__height: roundEven($button-medium__text-size * 2.714);
-$button-medium__padding: roundEven($button-medium__text-size* 1.20);
-$button-medium__border-radius: $button__border-radius;
-
-$button-large__text-size: ($base-font-size + 2);
-$button-large__height: roundEven($button-large__text-size * 2.625);
-$button-large__padding: roundEven($button-large__text-size * 1.25);
-$button-large__border-radius: $button__border-radius;
