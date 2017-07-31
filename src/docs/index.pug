@@ -18,25 +18,29 @@ html(lang="en")
 
     body
         div(style="width:460px;margin:0 auto")
-            h1 Pug
+            h1 Bootstrap
 
             div(style="float:left;")
                 button(class="c-button c-button_small c-button_primary" ondragstart="return false")
-                    .c-button__inner Кнопка
+                    .c-button__inner Главная кнопка
 
-            div(style="float:left; margin-left: 4px;")
+            div(style="float:left; margin-left: 20px;")
                 button(class="c-button c-button_small c-button_default")
-                    .c-button__inner Кнопка1
+                    .c-button__inner Второстепенная кнопка
 
-            div(style="float:left; margin-left: 4px;")
+            div(style="clear:both;")
+
+            div(style="margin-top: 20px;")
                 button(class="c-button c-button_small c-button_primary c-button_disabled")
-                    .c-button__inner Кнопка
+                    .c-button__inner Неактивная кнопка
 
-            div(style="float:left; margin-left: 4px;")
+            div(style="margin-top: 20px;")
                 button(class="c-button c-button_small c-button_default" onclick="loaderExample(this);")
-                    .c-button__inner Загрузка
+                    .c-button__inner Нажми для загрузки
 
             div(style="clear:both; padding-top: 30px;")
+
+            h2 Размеры кнопок
 
             div(style="float:left;")
                 button(class="c-button c-button_small c-button_default")
@@ -52,15 +56,14 @@ html(lang="en")
 
             div(style="clear:both; padding-top: 30px;")
 
+            h2 Input
+
             div(style="margin-top:20px;")
                 label(style="display: inline-block;position: relative;width: 200px;")
                     input(class="c-input")
 
                 button(class="c-button c-button_small c-button_default")
                     .c-button__inner КнопкаT
-
-            div(style="height:1px; background: #ccc; margin: 30px 0;")
-
 
 
             div(style="margin-top:20px")
@@ -105,3 +108,5 @@ html(lang="en")
                         .c-button__wrap
                             button.c-button.c-button_large.c-button_default
                                 .c-button__inner Кнопка
+
+            div(style="height:40px")
