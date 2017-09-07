@@ -1,0 +1,15 @@
+@import "../main-vars";
+@import "font-face";
+
+html {
+    line-height: 1;
+}
+
+body {
+    font-size: $base-font-size;
+    font-family: $base-font-family;
+    -webkit-font-smoothing: antialiased;
+}
+
+@import "text";
+@import "links";

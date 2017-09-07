@@ -1,0 +1,65 @@
+$font-small: $base-font-size - 2;
+$font-large: $base-font-size + 2;
+$font-extra-large: $base-font-size + 4;
+
+$font-small-line-height: roundEven($font-small * $base-ratio);
+$font-large-line-height: roundEven($font-large * $base-ratio);
+$font-extra-large-line-height: roundEven($font-extra-large * $base-ratio);
+
+$paragraph-M-margin: roundEven($base-line-height * $between-paragraphs-ratio);
+$paragraph-S-margin: roundEven($font-small-line-height * $between-paragraphs-ratio);
+$paragraph-L-margin: roundEven($font-large-line-height * $between-paragraphs-ratio);
+$paragraph-XL-margin: roundEven($font-extra-large-line-height * $between-paragraphs-ratio);
+
+.text-m {
+    font-size: $base-font-size;
+    line-height: $base-line-height;
+}
+
+.text-l {
+    font-size: $font-large;
+    line-height: $font-large-line-height;
+}
+
+.text-xl {
+    font-size: $font-extra-large;
+    line-height: $font-extra-large-line-height;
+}
+
+.text-s {
+    font-size: $font-small;
+    line-height: $font-small-line-height;
+}
+
+// ---------------------
+
+p {
+    display: block;
+    margin: $base-paragraph-margin 0 $base-paragraph-margin;
+}
+
+p.text-m {
+    margin: $paragraph-M-margin 0 $paragraph-M-margin;
+}
+
+p.text-l {
+    margin: $paragraph-L-margin 0 $paragraph-L-margin;
+}
+
+p.text-xl {
+    margin: $paragraph-XL-margin 0 $paragraph-XL-margin;
+}
+
+p.text-s {
+    margin: $paragraph-S-margin 0 $paragraph-S-margin;
+}
+
+// ---------------------
+
+p.first, p:first-child {
+    margin-top: 0;
+}
+
+p.last, p:last-child {
+    margin-bottom: 0;
+}

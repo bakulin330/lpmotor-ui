@@ -47,3 +47,71 @@ gulp.task('default', function () {
     plugins.gutil.log('This is the default task.');
     plugins.gutil.log('Enter `gulp build` command to start building process.');
 });
+
+// --------------------------
+
+gulp.task('x:normalize', function(){
+    var isProd = true; //
+    return gulp.src(env.dirRoot + 'src2/normalize/style.scss')
+        .pipe(plugins.sass({
+            outputStyle: isProd ? 'compressed' : 'expanded',
+            sourceComments: !isProd
+        }).on('error', plugins.sass.logError))
+        .pipe(plugins.concatCss('normalize/a.css'))
+        .pipe(plugins.prefixer())
+        .pipe(isProd || env.minify
+            ? plugins.csso()
+            : plugins.gutil.noop()
+        )
+        .pipe(gulp.dest(env.dirRoot + 'build2'))
+    ;
+});
+
+gulp.task('x:typography', function(){
+    return gulp.src(env.dirRoot + 'src2/typography/style.scss')
+        .pipe(plugins.sass({
+            outputStyle: env.prod ? 'compressed' : 'expanded',
+            sourceComments: !env.prod
+        }).on('error', plugins.sass.logError))
+        .pipe(plugins.concatCss('typography.css'))
+        .pipe(plugins.prefixer())
+        //.pipe(cssmin())
+        .pipe(env.prod || env.minify
+            ? plugins.csso()
+            : plugins.gutil.noop()
+        )
+        .pipe(gulp.dest(env.dirRoot + 'build2'))
+    ;
+});
+
+gulp.task('x:build-all', [
+    'x:normalize',
+    'x:typography'
+], function(){
+    var isProd = true; // env.prod
+    return gulp.src([
+        env.dirRoot + 'build2/normalize/a.css',
+        env.dirRoot + 'build2/*.css'
+    ])
+        .pipe(plugins.concatCss('full.css'))
+        .pipe(isProd || env.minify
+            ? plugins.csso()
+            : plugins.gutil.noop()
+        )
+        .pipe(gulp.dest(env.dirRoot + 'build2/pack/'))
+    ;
+});
+
+gulp.task('x:html', function(){
+    gulp.src(env.dirRoot + 'src2/**/*.pug')
+        .pipe(plugins.pug({
+            pretty: true
+        }))
+        .pipe(gulp.dest(env.dirRoot + 'build2/'))
+    ;
+});
+
+gulp.task('x:watch', ['x:build-all', 'x:html'], function(){
+    gulp.watch(env.dirRoot + 'src2/**/*.scss', ['x:build-all']);
+    gulp.watch(env.dirRoot + 'src2/**/*.pug', ['x:html']);
+});
