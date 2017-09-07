@@ -32,29 +32,33 @@ $paragraph-XL-margin: roundEven($font-extra-large-line-height * $between-paragra
 }
 
 // ---------------------
+// Отступы параграфов задаются сверху и снизу для того, чтобы можно было комбинировать
+// параграфы разных размеров. Тогда между ними будет максимальный отступ (т.е. того параграфа,
+// который крупнее. Конечно, в идеале таких комбинаций не надо делать.
 
 p {
     display: block;
     margin: $base-paragraph-margin 0 $base-paragraph-margin;
 }
 
-p.text-m {
+p.text-m, .text-m > p {
     margin: $paragraph-M-margin 0 $paragraph-M-margin;
 }
 
-p.text-l {
+p.text-l, .text-l > p {
     margin: $paragraph-L-margin 0 $paragraph-L-margin;
 }
 
-p.text-xl {
+p.text-xl, .text-xl > p {
     margin: $paragraph-XL-margin 0 $paragraph-XL-margin;
 }
 
-p.text-s {
+p.text-s, .text-s > p {
     margin: $paragraph-S-margin 0 $paragraph-S-margin;
 }
 
 // ---------------------
+// в самом низу, т.к. перебивают отступы
 
 p.first, p:first-child {
     margin-top: 0;
