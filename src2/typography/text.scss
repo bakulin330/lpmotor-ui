@@ -6,10 +6,10 @@ $font-small-line-height: roundEven($font-small * $base-ratio);
 $font-large-line-height: roundEven($font-large * $base-ratio);
 $font-extra-large-line-height: roundEven($font-extra-large * $base-ratio);
 
-$paragraph-M-margin: roundEven($base-line-height * $between-paragraphs-ratio);
-$paragraph-S-margin: roundEven($font-small-line-height * $between-paragraphs-ratio);
-$paragraph-L-margin: roundEven($font-large-line-height * $between-paragraphs-ratio);
-$paragraph-XL-margin: roundEven($font-extra-large-line-height * $between-paragraphs-ratio);
+$paragraph-M-margin: roundEven($base-font-size * $between-paragraphs-ratio);
+$paragraph-S-margin: roundEven($font-small * $between-paragraphs-ratio);
+$paragraph-L-margin: roundEven($font-large * $between-paragraphs-ratio);
+$paragraph-XL-margin: roundEven($font-extra-large * $between-paragraphs-ratio);
 
 .text-m {
     font-size: $base-font-size;

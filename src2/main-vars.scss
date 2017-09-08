@@ -1,10 +1,12 @@
 @import "mixins";
 
+$golden-ratio: 1.618;
 $base-font-family: 'Segoe UI', Arial, sans-serif;
 $base-font-size: 14px;
-$base-ratio: 1.45;
-$golden-ratio: 1.618;
+
+//$base-ratio: 1.45;
+$base-ratio: $golden-ratio;
 $base-line-height: roundEven($base-font-size * $base-ratio);
 
-$base-paragraph-margin: 0.8em;
-$between-paragraphs-ratio: 0.6;
+$base-paragraph-margin: 0.85em;
+$between-paragraphs-ratio: 0.85;
