@@ -10,7 +10,7 @@ module.exports = function(gulp, plugins, config, env, dirRoot, dirBuild){
 
     // DEFINE TASKS
     gulp.task('lpm-ui:docs', getUiTask('docs'));
-    gulp.task('lpm-ui:docs-style', getUiTask('docs-style'));
+    // gulp.task('lpm-ui:docs-style', getUiTask('docs-style'));
     gulp.task('lpm-ui:normalize', getUiTask('normalize'));
     gulp.task('lpm-ui:typography', getUiTask('typography'));
     gulp.task('lpm-ui:button', getUiTask('button'));

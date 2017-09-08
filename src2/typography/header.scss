@@ -1,0 +1,43 @@
+$header1--font-size: roundEven($base-font-size * 2);
+$header1--line-height: 1; //roundEven($header1--font-size * $base-ratio);
+
+$header2--font-size: roundEven($base-font-size * 1.588);
+$header2--line-height: 1; //roundEven($header2--font-size * $base-ratio);
+
+$header3--font-size: roundEven($base-font-size * 1.26);
+$header3--line-height: 1; //roundEven($header3--font-size * $base-ratio);
+
+$header5--font-size: roundEven($base-font-size * 0.794);
+$header5--line-height: 1;
+
+h1, h2, h3, h4, h5 {
+    margin: 0;
+}
+
+h1 {
+    font-size: $header1--font-size;
+    line-height: $header1--line-height;
+    font-weight: normal;
+}
+
+h2 {
+    font-size: $header2--font-size;
+    line-height: $header2--line-height;
+    font-weight: normal;
+}
+
+h3 {
+    font-size: $header3--font-size;
+    line-height: $header3--line-height;
+    font-weight: bold;
+}
+
+h4 {
+    font-size: $base-font-size;
+    line-height: roundEven($base-font-size * $base-ratio);
+}
+
+h5 {
+    font-size: $header5--font-size;
+    line-height: $header5--line-height;
+}
