@@ -8,6 +8,9 @@ html {
 body {
     font-size: $base-font-size;
     font-family: $base-font-family;
+
+    // Для того, чтобы на маках шрифт рендерился более тонко и не искажался цвет,
+    // работает только в вебкитовых браузерах и только на Маках):
     -webkit-font-smoothing: antialiased;
 }
 

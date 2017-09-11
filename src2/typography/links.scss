@@ -1,13 +1,23 @@
-a {
+.link {
     text-decoration: none;
-    outline: 0;
-}
-
-a {
+    outline: none;
     cursor: pointer;
     color: #3072c4;
 }
 
-a:hover {
+.link:hover, .link_hover {
     text-decoration: underline;
+}
+
+.link:active, .link_active {
+    color: #044785;
+    background: transparent;
+}
+
+.link:visited, .link_visited {
+    @extend .link;
+}
+
+a {
+    @extend .link;
 }

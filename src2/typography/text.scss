@@ -1,19 +1,22 @@
 $font-small: $base-font-size - 2;
+$font-medium: $base-font-size;
 $font-large: $base-font-size + 2;
 $font-extra-large: $base-font-size + 4;
 
 $font-small-line-height: roundEven($font-small * $base-ratio);
+$font-medium-line-height: roundEven($font-medium * $base-ratio);
 $font-large-line-height: roundEven($font-large * $base-ratio);
 $font-extra-large-line-height: roundEven($font-extra-large * $base-ratio);
 
-$paragraph-M-margin: roundEven($base-font-size * $between-paragraphs-ratio);
+$base-paragraph-margin: $between-paragraphs-ratio * 1em;
+$paragraph-M-margin: roundEven($font-medium * $between-paragraphs-ratio);
 $paragraph-S-margin: roundEven($font-small * $between-paragraphs-ratio);
 $paragraph-L-margin: roundEven($font-large * $between-paragraphs-ratio);
 $paragraph-XL-margin: roundEven($font-extra-large * $between-paragraphs-ratio);
 
 .text-m {
-    font-size: $base-font-size;
-    line-height: $base-line-height;
+    font-size: $font-medium;
+    line-height: $font-medium-line-height;
 }
 
 .text-l {
@@ -41,20 +44,50 @@ p {
     margin: $base-paragraph-margin 0 $base-paragraph-margin;
 }
 
+// ---------------------
+
+@mixin textMediumMargin {
+    margin: $paragraph-M-margin 0;
+}
+
+@mixin textLargeMargin {
+    margin: $paragraph-L-margin 0;
+}
+
+.text-xl__margin {
+    margin: $paragraph-XL-margin 0;
+}
+
+.text-s__margin {
+    margin: $paragraph-S-margin 0;
+}
+
+// ---------------------
+
 p.text-m, .text-m > p {
-    margin: $paragraph-M-margin 0 $paragraph-M-margin;
+    @include textMediumMargin;
 }
 
 p.text-l, .text-l > p {
-    margin: $paragraph-L-margin 0 $paragraph-L-margin;
+    @include textLargeMargin;
 }
 
 p.text-xl, .text-xl > p {
-    margin: $paragraph-XL-margin 0 $paragraph-XL-margin;
+    @extend .text-xl__margin;
 }
 
 p.text-s, .text-s > p {
-    margin: $paragraph-S-margin 0 $paragraph-S-margin;
+    @extend .text-s__margin;
+}
+
+// ---------------------
+
+p.text-m__margin, .text-m__margin {
+    @include textMediumMargin;
+}
+
+p.text-l__margin, .text-l__margin {
+    @include textLargeMargin;
 }
 
 // ---------------------
