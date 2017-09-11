@@ -1,3 +1,23 @@
 @function roundEven($num) {
     @return round($num / 2) * 2;
 }
+
+@function roundStep($num) {
+    @return round($num / $multiplier) * $multiplier;
+}
+
+@function pow($number, $exponent) {
+    $value: 1;
+
+    @if $exponent > 0 {
+        @for $i from 1 through $exponent {
+            $value: $value * $number;
+        }
+    }
+
+    @return $value;
+}
+
+@function inputSize($font-size) {
+    @return roundEven($font-size * $input-height-ratio);
+}

@@ -51,13 +51,13 @@ gulp.task('default', function () {
 // --------------------------
 
 gulp.task('x:normalize', function(){
-    var isProd = true; //
+    var isProd = env.prod;
     return gulp.src(env.dirRoot + 'src2/normalize/style.scss')
         .pipe(plugins.sass({
             outputStyle: isProd ? 'compressed' : 'expanded',
             sourceComments: !isProd
         }).on('error', plugins.sass.logError))
-        .pipe(plugins.concatCss('normalize/a.css'))
+        .pipe(plugins.concatCss('normalize.css'))
         .pipe(plugins.prefixer())
         .pipe(isProd || env.minify
             ? plugins.csso()
@@ -67,38 +67,57 @@ gulp.task('x:normalize', function(){
     ;
 });
 
-gulp.task('x:typography', function(){
-    return gulp.src(env.dirRoot + 'src2/typography/style.scss')
+// gulp.task('x:typography', function(){
+//     return gulp.src(env.dirRoot + 'src2/typography/style.scss')
+//         .pipe(plugins.sass({
+//             outputStyle: env.prod ? 'compressed' : 'expanded',
+//             sourceComments: !env.prod
+//         }).on('error', plugins.sass.logError))
+//         .pipe(plugins.concatCss('typography.css'))
+//         .pipe(plugins.prefixer())
+//         //.pipe(cssmin())
+//         .pipe(env.prod || env.minify
+//             ? plugins.csso()
+//             : plugins.gutil.noop()
+//         )
+//         .pipe(gulp.dest(env.dirRoot + 'build2'))
+//         ;
+// });
+
+gulp.task('x:styles', function(){
+    return gulp.src([env.dirRoot + 'src2/**/style.scss', '!' + env.dirRoot + 'src2/normalize/style.scss'])
         .pipe(plugins.sass({
             outputStyle: env.prod ? 'compressed' : 'expanded',
             sourceComments: !env.prod
         }).on('error', plugins.sass.logError))
-        .pipe(plugins.concatCss('typography.css'))
-        .pipe(plugins.prefixer())
+        .pipe(plugins.concatCss('styles.css'))
+        .pipe(plugins.prefixer({
+            browsers: 'last 3 versions'
+        }))
         //.pipe(cssmin())
         .pipe(env.prod || env.minify
             ? plugins.csso()
             : plugins.gutil.noop()
         )
         .pipe(gulp.dest(env.dirRoot + 'build2'))
-    ;
+        ;
 });
 
 gulp.task('x:build-all', [
     'x:normalize',
-    'x:typography'
+    'x:styles'
 ], function(){
-    var isProd = true; // env.prod
+    var isProd = true; //env.prod;
     return gulp.src([
-        env.dirRoot + 'build2/normalize/a.css',
-        env.dirRoot + 'build2/*.css'
+        env.dirRoot + 'build2/normalize.css',
+        env.dirRoot + 'build2/styles.css'
     ])
         .pipe(plugins.concatCss('full.css'))
         .pipe(isProd || env.minify
             ? plugins.csso()
             : plugins.gutil.noop()
         )
-        .pipe(gulp.dest(env.dirRoot + 'build2/pack/'))
+        .pipe(gulp.dest(env.dirRoot + 'build2/'))
     ;
 });
 

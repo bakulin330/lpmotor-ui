@@ -1,37 +1,41 @@
-$font-small: $base-font-size - 2;
-$font-medium: $base-font-size;
-$font-large: $base-font-size + 2;
-$font-extra-large: $base-font-size + 4;
+$font-S: $base-font-size - 2;
+$font-M: $base-font-size;
+$font-L: $base-font-size + 2;
+$font-XL: $base-font-size + 4;
 
-$font-small-line-height: roundEven($font-small * $base-ratio);
-$font-medium-line-height: roundEven($font-medium * $base-ratio);
-$font-large-line-height: roundEven($font-large * $base-ratio);
-$font-extra-large-line-height: roundEven($font-extra-large * $base-ratio);
+$font-S-line-height: roundEven($font-S * $base-ratio);
+$font-M-line-height: roundEven($font-M * $base-ratio);
+$font-L-line-height: roundEven($font-L * $base-ratio);
+$font-XL-line-height: roundEven($font-XL * $base-ratio);
 
 $base-paragraph-margin: $between-paragraphs-ratio * 1em;
-$paragraph-M-margin: roundEven($font-medium * $between-paragraphs-ratio);
-$paragraph-S-margin: roundEven($font-small * $between-paragraphs-ratio);
-$paragraph-L-margin: roundEven($font-large * $between-paragraphs-ratio);
-$paragraph-XL-margin: roundEven($font-extra-large * $between-paragraphs-ratio);
+$paragraph-M-margin: roundEven($font-M * $between-paragraphs-ratio);
+$paragraph-S-margin: roundEven($font-S * $between-paragraphs-ratio);
+$paragraph-L-margin: roundEven($font-L * $between-paragraphs-ratio);
+$paragraph-XL-margin: roundEven($font-XL * $between-paragraphs-ratio);
+//$paragraph-M-margin: roundEven($font-M-line-height * 1.5 - $font-M-line-height);
+//$paragraph-S-margin: roundEven($font-S-line-height * 1.5 - $font-S-line-height);
+//$paragraph-L-margin: roundEven($font-L-line-height * 1.5 - $font-L-line-height);
+//$paragraph-XL-margin: roundEven($font-XL-line-height * 1.5 - $font-XL-line-height);
 
 .text-m {
-    font-size: $font-medium;
-    line-height: $font-medium-line-height;
+    font-size: $font-M;
+    line-height: $font-M-line-height;
 }
 
 .text-l {
-    font-size: $font-large;
-    line-height: $font-large-line-height;
+    font-size: $font-L;
+    line-height: $font-L-line-height;
 }
 
 .text-xl {
-    font-size: $font-extra-large;
-    line-height: $font-extra-large-line-height;
+    font-size: $font-XL;
+    line-height: $font-XL-line-height;
 }
 
 .text-s {
-    font-size: $font-small;
-    line-height: $font-small-line-height;
+    font-size: $font-S;
+    line-height: $font-S-line-height;
 }
 
 // ---------------------
@@ -54,11 +58,11 @@ p {
     margin: $paragraph-L-margin 0;
 }
 
-.text-xl__margin {
+@mixin textExtraLargeMargin {
     margin: $paragraph-XL-margin 0;
 }
 
-.text-s__margin {
+@mixin textSmallMargin {
     margin: $paragraph-S-margin 0;
 }
 
@@ -73,11 +77,11 @@ p.text-l, .text-l > p {
 }
 
 p.text-xl, .text-xl > p {
-    @extend .text-xl__margin;
+    @include textExtraLargeMargin;
 }
 
 p.text-s, .text-s > p {
-    @extend .text-s__margin;
+    @include textSmallMargin;
 }
 
 // ---------------------
@@ -88,6 +92,14 @@ p.text-m__margin, .text-m__margin {
 
 p.text-l__margin, .text-l__margin {
     @include textLargeMargin;
+}
+
+p.text-xl__margin, .text-xl__margin {
+    @include textExtraLargeMargin;
+}
+
+p.text-s__margin, .text-s__margin {
+    @include textSmallMargin;
 }
 
 // ---------------------
