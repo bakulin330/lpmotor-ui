@@ -1,27 +1,35 @@
 .button-default {
-    &:focus, .button-focus {
+    // здесь обязательно амперсанды у всех состояний!
+    &:focus, &.button-focus {
 
     }
 
-    &:hover, .button-hover {
+    &:hover, &.button-hover {
 
     }
 
-    &:active, .button-active {
+    &:active, &.button-active {
 
     }
 }
 
 .button-primary {
-    &:focus, .button-focus {
+    // здесь обязательно амперсанды у всех состояний!
+    &:focus, &.button-focus {
 
     }
 
-    &:hover, .button-hover {
+    &:hover, &.button-hover {
 
     }
 
-    &:active, .button-active {
+    &:active, &.button-active {
 
     }
 }
+
+.button-link {}
+
+.button-green {}
+.button-red {}
+.button-yellow {}

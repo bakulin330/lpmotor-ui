@@ -19,9 +19,32 @@ body
             div.button-wrap
                 button.button-xl Кнопка XL
 
+
         div(style="margin-top:40px")
-            div.button-wrap
-                button.button-m(onclick="this.className = this.className + ' button-loading';") Loading
+            table
+                tr
+                    td Normal
+                    td
+                        button.button-m Normal
+                tr
+                    td Hover
+                    td
+                        button.button-m.button-hover Hover
+                tr
+                    td Pressed
+                    td
+                        button.button-m.button-active Pressed
+
+        div(style="margin-top:40px")
+            table
+                tr
+                    td Loader
+                    td
+                        button.button-m(onclick="this.className = this.className + ' button-loading';") Нажми для загрузки
+                tr
+                    td Disabled
+                    td
+                        button.button-m.button-disabled Неактивная кнопка
 
     div(style="width:600px; padding:30px 0 0; margin: 0 auto;")
         h1 Заголовок 1
