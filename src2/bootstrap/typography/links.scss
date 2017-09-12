@@ -5,32 +5,32 @@
     color: $link-color;
 }
 
-.link_hover {
+.link-hover {
     text-decoration: underline;
     color: $link-hover-color;
 }
 
-.link_active {
+.link-active {
     background: transparent;
     color: $link-acttive-color;
 }
 
-.link_visited {
+.link-visited {
     @extend .link;
 }
 
 // --------------------
 
 .link:hover {
-    @extend .link_hover;
+    @extend .link-hover;
 }
 
 .link:active {
-    @extend .link_active;
+    @extend .link-active;
 }
 
 .link:visited {
-    @extend .link_visited;
+    @extend .link-visited;
 }
 
 a {

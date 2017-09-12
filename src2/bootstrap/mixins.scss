@@ -18,6 +18,6 @@
     @return $value;
 }
 
-@function inputSize($font-size) {
+@function inputHeight($font-size) {
     @return roundEven($font-size * $input-height-ratio);
 }

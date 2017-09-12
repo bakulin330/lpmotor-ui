@@ -59,7 +59,7 @@ gulp.task('x:fonts', function(){
 });
 
 gulp.task('x:styles', function(){
-    var isProd = env.prod;
+    var isProd = true; //env.prod;
     return gulp.src(env.dirRoot + 'src2/themes/'+env.theme+'/theme.scss')
         .pipe(plugins.sass({
             outputStyle: isProd ? 'compressed' : 'expanded',

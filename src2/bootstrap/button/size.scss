@@ -1,0 +1,18 @@
+.button-m {
+    @extend .button;
+}
+
+.button-l {
+    @extend .button;
+    @include buttonSize($base-font-size + 2);
+}
+
+.button-xl {
+    @extend .button;
+    @include buttonSize($base-font-size + 4);
+}
+
+.button-s {
+    @extend .button;
+    @include buttonSize($base-font-size - 2);
+}
