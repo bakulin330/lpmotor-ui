@@ -22,7 +22,8 @@ var gulp = require('gulp'),
     env = {
         dirRoot: process.cwd() + '/',
         prod: (plugins.gutil.env.prod),
-        minify: (plugins.gutil.env.minify)
+        minify: (plugins.gutil.env.minify),
+        theme: 'one'
     },
     config = {};
 
@@ -51,22 +52,22 @@ gulp.task('default', function () {
 
 // --------------------------
 
-gulp.task('x:normalize', function(){
-    var isProd = env.prod;
-    return gulp.src(env.dirRoot + 'src2/bootstrap/normalize/style.scss')
-        .pipe(plugins.sass({
-            outputStyle: isProd ? 'compressed' : 'expanded',
-            sourceComments: !isProd
-        }).on('error', plugins.sass.logError))
-        .pipe(plugins.concatCss('normalize.css'))
-        .pipe(plugins.prefixer())
-        .pipe(isProd || env.minify
-            ? plugins.csso()
-            : plugins.gutil.noop()
-        )
-        .pipe(gulp.dest(env.dirRoot + 'build2'))
-    ;
-});
+// gulp.task('x:normalize', function(){
+//     var isProd = env.prod;
+//     return gulp.src(env.dirRoot + 'src2/bootstrap/normalize/style.scss')
+//         .pipe(plugins.sass({
+//             outputStyle: isProd ? 'compressed' : 'expanded',
+//             sourceComments: !isProd
+//         }).on('error', plugins.sass.logError))
+//         .pipe(plugins.concatCss('normalize.css'))
+//         .pipe(plugins.prefixer())
+//         .pipe(isProd || env.minify
+//             ? plugins.csso()
+//             : plugins.gutil.noop()
+//         )
+//         .pipe(gulp.dest(env.dirRoot + 'build2'))
+//     ;
+// });
 
 // gulp.task('x:typography', function(){
 //     return gulp.src(env.dirRoot + 'src2/typography/style.scss')
@@ -86,12 +87,12 @@ gulp.task('x:normalize', function(){
 // });
 
 gulp.task('x:styles', function(){
-    return gulp.src([env.dirRoot + 'src2/bootstrap/**/style.scss', '!' + env.dirRoot + 'src2/bootstrap/normalize/style.scss'])
+    return gulp.src(env.dirRoot + 'src2/themes/'+env.theme+'/theme.scss')
         .pipe(plugins.sass({
             outputStyle: env.prod ? 'compressed' : 'expanded',
             sourceComments: !env.prod
         }).on('error', plugins.sass.logError))
-        .pipe(plugins.concatCss('styles.css'))
+        .pipe(plugins.concatCss('full.css'))
         .pipe(plugins.prefixer({
             browsers: 'last 3 versions'
         }))
@@ -104,42 +105,35 @@ gulp.task('x:styles', function(){
         ;
 });
 
-gulp.task('x:theme', function(){
-    return gulp.src([env.dirRoot + 'src2/themes/one/one.scss'])
-        .pipe(plugins.sass({
-            outputStyle: env.prod ? 'compressed' : 'expanded',
-            sourceComments: !env.prod
-        }).on('error', plugins.sass.logError))
-        .pipe(plugins.concatCss('theme.css'))
-        .pipe(plugins.prefixer({
-            browsers: 'last 3 versions'
-        }))
-        //.pipe(cssmin())
-        .pipe(env.prod || env.minify
-            ? plugins.csso()
-            : plugins.gutil.noop()
-        )
-        .pipe(gulp.dest(env.dirRoot + 'build2'))
+gulp.task('x:fonts', function(){
+    return gulp.src(env.dirRoot + 'src2/themes/'+env.theme+'/fonts/**')
+        .pipe(gulp.dest(env.dirRoot + 'build2/fonts'))
         ;
 });
+
+// gulp.task('x:theme', function(){
+//     return gulp.src([env.dirRoot + 'src2/themes/one/one.scss'])
+//         .pipe(plugins.sass({
+//             outputStyle: env.prod ? 'compressed' : 'expanded',
+//             sourceComments: !env.prod
+//         }).on('error', plugins.sass.logError))
+//         .pipe(plugins.concatCss('theme.css'))
+//         .pipe(plugins.prefixer({
+//             browsers: 'last 3 versions'
+//         }))
+//         //.pipe(cssmin())
+//         .pipe(env.prod || env.minify
+//             ? plugins.csso()
+//             : plugins.gutil.noop()
+//         )
+//         .pipe(gulp.dest(env.dirRoot + 'build2'))
+//         ;
+// });
 
 gulp.task('x:build-all', [
-    'x:normalize',
+    'x:fonts',
     'x:styles'
-], function(){
-    var isProd = true; //env.prod;
-    return gulp.src([
-        env.dirRoot + 'build2/normalize.css',
-        env.dirRoot + 'build2/styles.css'
-    ])
-        .pipe(plugins.concatCss('full.css'))
-        .pipe(isProd || env.minify
-            ? plugins.csso()
-            : plugins.gutil.noop()
-        )
-        .pipe(gulp.dest(env.dirRoot + 'build2/'))
-    ;
-});
+]);
 
 gulp.task('x:html', function(){
     gulp.src(env.dirRoot + 'src2/**/*.pug')
@@ -151,6 +145,6 @@ gulp.task('x:html', function(){
 });
 
 gulp.task('x:watch', ['x:build-all', 'x:html'], function(){
-    gulp.watch(env.dirRoot + 'src2/**/*.scss', ['x:build-all']);
+    gulp.watch(env.dirRoot + 'src2/**/*.scss', ['x:styles']);
     gulp.watch(env.dirRoot + 'src2/**/*.pug', ['x:html']);
 });
