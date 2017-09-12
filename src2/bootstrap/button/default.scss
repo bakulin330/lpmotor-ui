@@ -1,9 +1,7 @@
 button {
+    // не используй тег button в одиночку!
+    // используй класс .button-m и тп
     color: #f00;
-}
-
-@mixin buttonActions() {
-
 }
 
 .button {

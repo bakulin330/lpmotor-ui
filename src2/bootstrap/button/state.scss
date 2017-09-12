@@ -1,7 +1,7 @@
 .button-disabled {
     cursor: default;
 
-    &:focus, &.button-focus {
+    &:focus, .button-focus {
         outline: none;
         box-shadow: none;
     }

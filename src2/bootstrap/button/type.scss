@@ -1,27 +1,27 @@
 .button-default {
-    &:focus, &.button-focus {
+    &:focus, .button-focus {
 
     }
 
-    &:hover, &.button-hover {
+    &:hover, .button-hover {
 
     }
 
-    &:active, &.button-active {
+    &:active, .button-active {
 
     }
 }
 
 .button-primary {
-    &:focus, &.button-focus {
+    &:focus, .button-focus {
 
     }
 
-    &:hover, &.button-hover {
+    &:hover, .button-hover {
 
     }
 
-    &:active, &.button-active {
+    &:active, .button-active {
 
     }
 }
