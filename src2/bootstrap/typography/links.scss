@@ -2,11 +2,12 @@
     text-decoration: none;
     outline: none;
     cursor: pointer;
-    color: #0af;
+    color: $link-color;
 }
 
 .link_hover {
     text-decoration: underline;
+    color: $link-hover-color;
 }
 
 .link_active {

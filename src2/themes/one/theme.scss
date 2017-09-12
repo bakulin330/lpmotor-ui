@@ -1,14 +1,12 @@
+// 1. Override bootstrap's default variables
 //$base-font-size: 18px;
+//$link-color: #f00;
 
-.link {
-    //color: #3072c4;
-    color: #f0f;
-}
-
-.link_active {
-    color: #044785;
-}
-
+// 2. Fonts (optional)
 @import "fonts";
+
+// 3. Bootstrap
 @import "../../bootstrap";
 
+// 4. Everything else that override bootstrap
+@import "links";

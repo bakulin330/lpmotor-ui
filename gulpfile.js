@@ -26,6 +26,7 @@ var gulp = require('gulp'),
     },
     config = {};
 
+plugins.gutil.log(plugins.gutil.colors.green('Theme'), '=', env.theme);
 plugins.gutil.log('Root =', env.dirRoot);
 if (env.prod) {
     plugins.gutil.log(plugins.gutil.colors.red('Production'), 'build');
@@ -51,88 +52,31 @@ gulp.task('default', function () {
 
 // --------------------------
 
-// gulp.task('x:normalize', function(){
-//     var isProd = env.prod;
-//     return gulp.src(env.dirRoot + 'src2/bootstrap/normalize/style.scss')
-//         .pipe(plugins.sass({
-//             outputStyle: isProd ? 'compressed' : 'expanded',
-//             sourceComments: !isProd
-//         }).on('error', plugins.sass.logError))
-//         .pipe(plugins.concatCss('normalize.css'))
-//         .pipe(plugins.prefixer())
-//         .pipe(isProd || env.minify
-//             ? plugins.csso()
-//             : plugins.gutil.noop()
-//         )
-//         .pipe(gulp.dest(env.dirRoot + 'build2'))
-//     ;
-// });
-
-// gulp.task('x:typography', function(){
-//     return gulp.src(env.dirRoot + 'src2/typography/style.scss')
-//         .pipe(plugins.sass({
-//             outputStyle: env.prod ? 'compressed' : 'expanded',
-//             sourceComments: !env.prod
-//         }).on('error', plugins.sass.logError))
-//         .pipe(plugins.concatCss('typography.css'))
-//         .pipe(plugins.prefixer())
-//         //.pipe(cssmin())
-//         .pipe(env.prod || env.minify
-//             ? plugins.csso()
-//             : plugins.gutil.noop()
-//         )
-//         .pipe(gulp.dest(env.dirRoot + 'build2'))
-//         ;
-// });
-
-gulp.task('x:styles', function(){
-    return gulp.src(env.dirRoot + 'src2/themes/'+env.theme+'/theme.scss')
-        .pipe(plugins.sass({
-            outputStyle: env.prod ? 'compressed' : 'expanded',
-            sourceComments: !env.prod
-        }).on('error', plugins.sass.logError))
-        .pipe(plugins.concatCss('full.css'))
-        .pipe(plugins.prefixer({
-            browsers: 'last 3 versions'
-        }))
-        //.pipe(cssmin())
-        .pipe(env.prod || env.minify
-            ? plugins.csso()
-            : plugins.gutil.noop()
-        )
-        .pipe(gulp.dest(env.dirRoot + 'build2'))
-        ;
-});
-
 gulp.task('x:fonts', function(){
     return gulp.src(env.dirRoot + 'src2/themes/'+env.theme+'/fonts/**')
         .pipe(gulp.dest(env.dirRoot + 'build2/fonts'))
         ;
 });
 
-// gulp.task('x:theme', function(){
-//     return gulp.src([env.dirRoot + 'src2/themes/one/one.scss'])
-//         .pipe(plugins.sass({
-//             outputStyle: env.prod ? 'compressed' : 'expanded',
-//             sourceComments: !env.prod
-//         }).on('error', plugins.sass.logError))
-//         .pipe(plugins.concatCss('theme.css'))
-//         .pipe(plugins.prefixer({
-//             browsers: 'last 3 versions'
-//         }))
-//         //.pipe(cssmin())
-//         .pipe(env.prod || env.minify
-//             ? plugins.csso()
-//             : plugins.gutil.noop()
-//         )
-//         .pipe(gulp.dest(env.dirRoot + 'build2'))
-//         ;
-// });
-
-gulp.task('x:build-all', [
-    'x:fonts',
-    'x:styles'
-]);
+gulp.task('x:styles', function(){
+    var isProd = true; // env.prod;
+    return gulp.src(env.dirRoot + 'src2/themes/'+env.theme+'/theme.scss')
+        .pipe(plugins.sass({
+            outputStyle: isProd ? 'compressed' : 'expanded',
+            sourceComments: !isProd
+        }).on('error', plugins.sass.logError))
+        .pipe(plugins.concatCss('full.css'))
+        .pipe(plugins.prefixer({
+            browsers: 'last 3 versions'
+        }))
+        //.pipe(cssmin())
+        .pipe(isProd || env.minify
+            ? plugins.csso()
+            : plugins.gutil.noop()
+        )
+        .pipe(gulp.dest(env.dirRoot + 'build2'))
+        ;
+});
 
 gulp.task('x:html', function(){
     gulp.src(env.dirRoot + 'src2/**/*.pug')
@@ -143,7 +87,13 @@ gulp.task('x:html', function(){
     ;
 });
 
-gulp.task('x:watch', ['x:build-all', 'x:html'], function(){
+gulp.task('x:build-all', [
+    'x:fonts',
+    'x:styles',
+    'x:html'
+]);
+
+gulp.task('x:watch', ['x:build-all'], function(){
     gulp.watch(env.dirRoot + 'src2/**/*.scss', ['x:styles']);
     gulp.watch(env.dirRoot + 'src2/**/*.pug', ['x:html']);
 });
