@@ -16,8 +16,7 @@ var gulp = require('gulp'),
         //include: require('gulp-include'),
         sass: require('gulp-sass'),
         sequence: require('gulp-sequence'), // используем плагин для последовательного/параллельного выполнения задач https://www.npmjs.com/package/gulp-sequence
-        pug: require('gulp-pug'),
-        sassGlob: require('gulp-sass-glob')
+        pug: require('gulp-pug')
     },
     env = {
         dirRoot: process.cwd() + '/',
