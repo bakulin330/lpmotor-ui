@@ -2,20 +2,33 @@
     text-decoration: none;
     outline: none;
     cursor: pointer;
-    color: #3072c4;
+    color: #0af;
 }
 
-.link:hover, .link_hover {
+.link_hover {
     text-decoration: underline;
 }
 
-.link:active, .link_active {
-    color: #044785;
+.link_active {
     background: transparent;
 }
 
-.link:visited, .link_visited {
+.link_visited {
     @extend .link;
+}
+
+// --------------------
+
+.link:hover {
+    @extend .link_hover;
+}
+
+.link:active {
+    @extend .link_active;
+}
+
+.link:visited {
+    @extend .link_visited;
 }
 
 a {

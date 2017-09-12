@@ -1,5 +1,14 @@
 //$base-font-size: 18px;
 
+.link {
+    //color: #3072c4;
+    color: #f0f;
+}
+
+.link_active {
+    color: #044785;
+}
+
 @import "fonts";
 @import "../../bootstrap";
 

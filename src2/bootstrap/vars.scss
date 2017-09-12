@@ -1,15 +1,15 @@
 //@import "mixins";
 
-$multiplier: 4;
-$step: $multiplier * 1px;
+$multiplier: 4 !default;;
+$step: $multiplier * 1px !default;;
 $golden-ratio: 1.618;
 
-$base-font-family: 'Segoe UI', Arial, sans-serif;
+$base-font-family: 'Segoe UI', Arial, sans-serif !default;
 $base-font-size: 14px !default;
 
-$base-ratio: 1.538;
-$base-line-height: roundEven($base-font-size * $base-ratio);
+$base-ratio: 1.538 !default;;
+$base-line-height: roundEven($base-font-size * $base-ratio) !default;;
 
-$between-paragraphs-ratio: 0.9;
+$between-paragraphs-ratio: 0.9 !default;;
 
 $input-height-ratio: 2.4 !default;
