@@ -16,7 +16,8 @@ var gulp = require('gulp'),
         //include: require('gulp-include'),
         sass: require('gulp-sass'),
         sequence: require('gulp-sequence'), // используем плагин для последовательного/параллельного выполнения задач https://www.npmjs.com/package/gulp-sequence
-        pug: require('gulp-pug')
+        pug: require('gulp-pug'),
+        sassGlob: require('gulp-sass-glob')
     },
     env = {
         dirRoot: process.cwd() + '/',
@@ -52,7 +53,7 @@ gulp.task('default', function () {
 
 gulp.task('x:normalize', function(){
     var isProd = env.prod;
-    return gulp.src(env.dirRoot + 'src2/normalize/style.scss')
+    return gulp.src(env.dirRoot + 'src2/bootstrap/normalize/style.scss')
         .pipe(plugins.sass({
             outputStyle: isProd ? 'compressed' : 'expanded',
             sourceComments: !isProd
@@ -85,12 +86,31 @@ gulp.task('x:normalize', function(){
 // });
 
 gulp.task('x:styles', function(){
-    return gulp.src([env.dirRoot + 'src2/**/style.scss', '!' + env.dirRoot + 'src2/normalize/style.scss'])
+    return gulp.src([env.dirRoot + 'src2/bootstrap/**/style.scss', '!' + env.dirRoot + 'src2/bootstrap/normalize/style.scss'])
         .pipe(plugins.sass({
             outputStyle: env.prod ? 'compressed' : 'expanded',
             sourceComments: !env.prod
         }).on('error', plugins.sass.logError))
         .pipe(plugins.concatCss('styles.css'))
+        .pipe(plugins.prefixer({
+            browsers: 'last 3 versions'
+        }))
+        //.pipe(cssmin())
+        .pipe(env.prod || env.minify
+            ? plugins.csso()
+            : plugins.gutil.noop()
+        )
+        .pipe(gulp.dest(env.dirRoot + 'build2'))
+        ;
+});
+
+gulp.task('x:theme', function(){
+    return gulp.src([env.dirRoot + 'src2/themes/one/one.scss'])
+        .pipe(plugins.sass({
+            outputStyle: env.prod ? 'compressed' : 'expanded',
+            sourceComments: !env.prod
+        }).on('error', plugins.sass.logError))
+        .pipe(plugins.concatCss('theme.css'))
         .pipe(plugins.prefixer({
             browsers: 'last 3 versions'
         }))

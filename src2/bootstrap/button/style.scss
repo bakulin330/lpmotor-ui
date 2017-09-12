@@ -1,4 +1,4 @@
-@import "../main-vars";
+@import "../vars";
 
 @mixin buttonSize($font-size) {
     $height: inputSize($font-size);
