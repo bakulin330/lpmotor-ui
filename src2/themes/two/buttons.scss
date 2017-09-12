@@ -1,0 +1,48 @@
+.button[disabled], .button-disabled {
+    background: #f2f2f2 !important;
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.15) !important;
+    color: #a0a0a0 !important;
+    text-shadow: none;
+
+    &:focus, &.button-focus {
+        box-shadow: none;
+    }
+}
+
+// -----------------
+
+.button-default {
+    background-image: linear-gradient(#ececec,#dcdcdc);
+
+    &:focus, &.button-focus {
+
+    }
+
+    &:hover, &.button-hover {
+        background: #dcdcdc;
+    }
+
+    &:active, &.button-active {
+        background: #dcdcdc;
+        box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+    }
+}
+
+.button-primary {
+    background-image: linear-gradient(#2899ea, #167ac1);
+    color: #fff;
+
+    &:focus, &.button-focus {
+
+    }
+
+    &:hover, &.button-hover {
+        color: #fff;
+        background-image: linear-gradient(#0087D5, #167ac1);
+    }
+
+    &:active, &.button-active {
+        background: #0079c3;
+        box-shadow: inset 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+    }
+}

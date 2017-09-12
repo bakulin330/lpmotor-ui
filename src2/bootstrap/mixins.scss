@@ -21,3 +21,16 @@
 @function inputHeight($font-size) {
     @return roundEven($font-size * $input-height-ratio);
 }
+
+@function buttonPadding($font-size, $height) {
+    @return roundEven((($height - $font-size) / 2) * 1.5);
+}
+
+//@mixin buttonSize($font-size) {
+//    $height: inputHeight($font-size) - ($button-wrap-size * 2);
+//
+//    font-size: $font-size;
+//    height: $height;
+//    line-height: $height - ($button-border-size * 2);
+//    padding: 0 roundEven((($height - $font-size) / 2) * 1.5);
+//}

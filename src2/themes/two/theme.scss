@@ -1,5 +1,12 @@
-$base-font-family: Arial, sans-serif !default;
-$base-font-size: 16px;
+// 1. Override bootstrap's default variables
+@import "vars";
 
-//@import "fonts";
+// 2. Fonts (optional)
+// @import "fonts";
+
+// 3. Bootstrap
 @import "../../bootstrap";
+
+// 4. Everything else that override bootstrap
+//@import "mixins";
+@import "buttons";

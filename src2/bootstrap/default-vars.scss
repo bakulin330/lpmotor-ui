@@ -18,4 +18,19 @@ $link-color: #3072c4 !default;
 $link-hover-color: $link-color !default;
 $link-acttive-color: #044785 !default;
 
-$input-border-radius: 3px;
+
+$button-wrap-size: 0 !default;
+$button-border-size: 0 !default;
+//$button-border-color: #ccc !default;
+
+$input-border-radius: 3px !default;
+
+$input-M-font-size: $base-font-size;
+$input-L-font-size: $base-font-size + 2;
+$input-XL-font-size: $base-font-size + 4;
+$input-S-font-size: $base-font-size - 2;
+
+$input-M-height: inputHeight($input-M-font-size);
+$input-L-height: inputHeight($input-L-font-size);
+$input-XL-height: inputHeight($input-XL-font-size);
+$input-S-height: inputHeight($input-S-font-size);

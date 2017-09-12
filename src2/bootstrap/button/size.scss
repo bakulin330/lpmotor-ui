@@ -1,18 +1,53 @@
 .button-m {
     @extend .button;
+    font-size: $input-M-font-size;
+    height: $input-M-height;
+    line-height: $input-M-height;
+    padding: 0 buttonPadding($input-M-font-size, $input-M-height);
 }
+
+.button-m:visited {
+    @extend .button-m;
+}
+
+// ------------------
 
 .button-l {
     @extend .button;
-    @include buttonSize($base-font-size + 2);
+    font-size: $input-L-font-size;
+    height: $input-L-height;
+    line-height: $input-L-height;
+    padding: 0 buttonPadding($input-L-font-size, $input-L-height);
 }
+
+.button-l:visited {
+    @extend .button-l;
+}
+
+// ------------------
 
 .button-xl {
     @extend .button;
-    @include buttonSize($base-font-size + 4);
+    font-size: $input-XL-font-size;
+    height: $input-XL-height;
+    line-height: $input-XL-height;
+    padding: 0 buttonPadding($input-XL-font-size, $input-XL-height);
 }
+
+.button-xl:visited {
+    @extend .button-xl;
+}
+
+// ------------------
 
 .button-s {
     @extend .button;
-    @include buttonSize($base-font-size - 2);
+    font-size: $input-S-font-size;
+    height: $input-S-height;
+    line-height: $input-S-height;
+    padding: 0 buttonPadding($input-S-font-size, $input-S-height);
+}
+
+.button-s:visited {
+    @extend .button-s;
 }
