@@ -1,0 +1,89 @@
+.button {
+    transition: background,color 300ms ease-out;
+    min-width: 120px;
+
+    &:focus, &.button-focus {
+         //box-shadow: inset 0 0 0 1px #fff, 0 0 0 2px #5199db;
+    }
+}
+
+.button-disabled {
+    background: #f2f2f2 !important;
+    //box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15) !important;
+    color: #a0a0a0 !important;
+    text-shadow: none;
+}
+
+// -----------------
+
+.button-default {
+    // здесь обязательно амперсанды у всех состояний!
+    background: #8c8c85;
+    color: #fff;
+
+    &:focus, &.button-focus {
+    }
+
+    &:hover, &.button-hover {
+        background: #a7a7a2;
+    }
+
+    &:active, &.button-active {
+
+    }
+}
+
+.button-primary {
+    // здесь обязательно амперсанды у всех состояний!
+    background: #4c9176;
+    color: #fff;
+
+    &:focus, &.button-focus {
+
+    }
+
+    &:hover, &.button-hover {
+        background-color: #63ad90;
+        border-color: #63ad90;
+    }
+
+    &:active, &.button-active {
+
+    }
+}
+
+//.button-green {
+//    // здесь обязательно амперсанды у всех состояний!
+//    background: #4caf50;
+//    color: #fff;
+//
+//    &:focus, &.button-focus {
+//
+//    }
+//
+//    &:hover, &.button-hover {
+//        background: #67bd6a;
+//    }
+//
+//    &:active, &.button-active {
+//        background: #357a38;
+//    }
+//}
+//
+//.button-red {
+//    // здесь обязательно амперсанды у всех состояний!
+//    background: #C2445C;
+//    color: #fff;
+//
+//    &:focus, &.button-focus {
+//
+//    }
+//
+//    &:hover, &.button-hover {
+//        background: #cc6377;
+//    }
+//
+//    &:active, &.button-active {
+//        background: #8c2e40;
+//    }
+//}

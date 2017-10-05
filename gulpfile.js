@@ -22,7 +22,7 @@ var gulp = require('gulp'),
         dirRoot: process.cwd() + '/',
         prod: (plugins.gutil.env.prod),
         minify: (plugins.gutil.env.minify),
-        theme: 'one'
+        theme: 'four'
     },
     config = {};
 

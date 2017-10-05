@@ -1,0 +1,19 @@
+.input {
+    color: #4a4a4a;
+    border: 1px solid #f1f1eb;
+    background: #fafaf7;
+    transition: border-color 300ms ease;
+
+    &:hover {
+
+    }
+
+    &:focus {
+        border-color: #d4d4c9;
+    }
+}
+
+.input-error {
+    border: 1px solid #f26c4f !important;
+    box-shadow: 0px 0px 5px 0px rgba(242, 108, 79, 0.4);
+}

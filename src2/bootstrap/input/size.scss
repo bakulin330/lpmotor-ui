@@ -1,0 +1,7 @@
+.input-m {
+    @extend .input;
+    font-size: $input-M-font-size;
+    height: $input-M-height;
+    //line-height: $input-M-height;
+    padding: 0 inputPadding($input-M-font-size, $input-M-height);
+}

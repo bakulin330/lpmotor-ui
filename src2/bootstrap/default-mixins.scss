@@ -25,3 +25,7 @@
 @function buttonPadding($font-size, $height) {
     @return roundEven((($height - $font-size) / 2) * 1.5);
 }
+
+@function inputPadding($font-size, $height) {
+    @return roundEven((($height - $font-size) / 2) * 1);
+}
